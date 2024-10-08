@@ -56,7 +56,7 @@ class RightTriangle : public Shape
 int main()
 {
     Rectangle rect(5.0, 6.0);
-    RightTriangle tri(5.0, 6.0);
+    RightTriangle tri(8.0, 15.0);
     cout << rect.getArea() << endl;
     cout << rect.getPerimeter() << endl;
     cout << tri.getArea() << endl;
