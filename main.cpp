@@ -31,6 +31,26 @@ class Rectangle : public Shape
             return (2 * width) + (2 * length);
         }
 };
+
+class Circle : public Shape
+{
+    private:
+        double radius;
+    public:
+        Circle(double r)
+        {
+            radius = r;
+        }
+        double getArea() override
+        {
+            return 2 * 3.14 * pow(radius, 2);
+        }
+        double getPerimeter() override
+        {
+            return 2 * 3.14 * radius;
+        }
+};
+
 class RightTriangle : public Shape
 {
     private:
@@ -57,6 +77,12 @@ int main()
 {
     Rectangle rect(5.0, 6.0);
     RightTriangle tri(8.0, 15.0);
+
+    Circle circle(5.0);
+
+    cout << circle.getArea() << endl;
+    cout << circle.getPerimeter() << endl;
+
     cout << rect.getArea() << endl;
     cout << rect.getPerimeter() << endl;
     cout << tri.getArea() << endl;
