@@ -11,6 +11,50 @@ class Shape
         virtual double getPerimeter() = 0;
 
 };
+
+class Square : public Shape
+{
+    private:
+        double width;
+        double length;
+    public:
+        Square(double w, double l)
+        {
+            width = w;
+            length = l;
+        }
+        double getArea() override
+        {
+            return width * length;
+        }
+        double getPerimeter() override
+        {
+            return (2 * width) + (2 * length);
+        }
+};
+
+class IsocelesRightTriangle : public Shape
+{
+    private:
+        double height;
+        double base;
+    public:
+        IsocelesRightTriangle(double h, double b)
+        {
+            height = h;
+            base = b;
+        }
+        double getArea() override
+        {
+            return (base * height)/2;
+        }
+        double getPerimeter() override
+        {
+            double hypotenuse = sqrt(base * base + height * height);
+            return (base + height + hypotenuse);
+        }
+};
+
 class Rectangle : public Shape
 {
     private:
@@ -77,16 +121,19 @@ int main()
 {
     Rectangle rect(5.0, 6.0);
     RightTriangle tri(8.0, 15.0);
-
     Circle circle(5.0);
-
-    cout << circle.getArea() << endl;
-    cout << circle.getPerimeter() << endl;
+    Square square(5.0, 5.0);
+    IsocelesRightTriangle irt(8.0, 15.0);
 
     cout << rect.getArea() << endl;
     cout << rect.getPerimeter() << endl;
     cout << tri.getArea() << endl;
     cout << tri.getPerimeter() << endl;
+    cout << circle.getArea() << endl;
+    cout << circle.getPerimeter() << endl;
+    cout << square.getArea() << endl;
+    cout << irt.getPerimeter() << endl;
+    cout << irt.getArea() << endl;
 
     return 0;
 }
