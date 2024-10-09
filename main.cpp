@@ -9,8 +9,13 @@ class Shape
     public:
         virtual double getArea() = 0;
         virtual double getPerimeter() = 0;
+        virtual string getName() = 0;
 
 };
+string printAreaToScreen(Shape *s)
+{
+    return "The shape is a " + s->getName() + ". The area of the " + s->getName() + " is " + to_string(s->getArea());
+}
 class Rectangle : public Shape
 {
     public:
@@ -29,6 +34,10 @@ class Rectangle : public Shape
         double getPerimeter() override
         {
             return (2 * width) + (2 * length);
+        }
+        string getName() override
+        {
+            return "Rectangle";
         }
 };
 class RightTriangle : public Shape
@@ -51,6 +60,10 @@ class RightTriangle : public Shape
             double hypotenuse = sqrt(base * base + height * height);
             return (base + height + hypotenuse);
         }
+        string getName() override
+        {
+            return "Right Triangle";
+        }
 };
 class Square : public Rectangle
 {
@@ -60,7 +73,11 @@ class Square : public Rectangle
             width = s;
             length = s;
         }
-};
+        string getName() override
+        {
+            return "Square";
+        }
+ };
 class IsocelesRightTriangle : public RightTriangle
 {
     public:
@@ -68,6 +85,10 @@ class IsocelesRightTriangle : public RightTriangle
         {
             height = s;
             base = s;
+        }
+        string getName() override
+        {
+            return "Isoceles Right Triangle";
         }
 };
 
@@ -85,6 +106,11 @@ int main()
     cout << square.getPerimeter() << endl;
     cout << iso.getArea() << endl;
     cout << iso.getPerimeter() << endl;
+    cout << printAreaToScreen(&rect) << endl;
+    cout << printAreaToScreen(&tri) << endl;
+    cout << printAreaToScreen(&square) << endl;
+    cout << printAreaToScreen(&iso) << endl;
+
 
     return 0;
 }
