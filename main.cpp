@@ -15,21 +15,19 @@ class Shape
 class Square : public Rectangle
 {
     private:
-        double width;
-        double length;
+        double sides;
     public:
-        Square(double w, double l)
+        Square(double s)
         {
-            width = w;
-            length = l;
+            double sides = s;
         }
         double getArea() override
         {
-            return width * length;
+            return sides * sides;
         }
         double getPerimeter() override
         {
-            return (2 * width) + (2 * length);
+            return (2 * sides) + (2 * sides);
         }
 };
 
@@ -124,7 +122,7 @@ int main()
     Rectangle rect(5.0, 6.0);
     RightTriangle tri(8.0, 15.0);
     Circle circle(5.0);
-    Square square(5.0, 5.0);
+    Square square(5.0);
     IsocelesRightTriangle irt(8.0, 15.0);
 
     cout << rect.getArea() << endl;
