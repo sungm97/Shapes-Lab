@@ -13,10 +13,10 @@ class Shape
 };
 class Rectangle : public Shape
 {
-    private:
+    public:
         double width;
         double length;
-    public:
+        Rectangle(){}
         Rectangle(double w, double l)
         {
             width = w;
@@ -33,10 +33,10 @@ class Rectangle : public Shape
 };
 class RightTriangle : public Shape
 {
-    private:
+    public:
         double height;
         double base;
-    public:
+        RightTriangle(){}
         RightTriangle(double h, double b)
         {
             height = h;
@@ -52,15 +52,39 @@ class RightTriangle : public Shape
             return (base + height + hypotenuse);
         }
 };
+class Square : public Rectangle
+{
+    public:
+        Square(double s)
+        {
+            width = s;
+            length = s;
+        }
+};
+class IsocelesRightTriangle : public RightTriangle
+{
+    public:
+        IsocelesRightTriangle(double s)
+        {
+            height = s;
+            base = s;
+        }
+};
 
 int main()
 {
     Rectangle rect(5.0, 6.0);
     RightTriangle tri(8.0, 15.0);
+    Square square(5.0);
+    IsocelesRightTriangle iso(10);
     cout << rect.getArea() << endl;
     cout << rect.getPerimeter() << endl;
     cout << tri.getArea() << endl;
     cout << tri.getPerimeter() << endl;
+    cout << square.getArea() << endl;
+    cout << square.getPerimeter() << endl;
+    cout << iso.getArea() << endl;
+    cout << iso.getPerimeter() << endl;
 
     return 0;
 }
