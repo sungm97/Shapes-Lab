@@ -12,7 +12,7 @@ class Shape
 
 };
 
-class Square : public Shape
+class Square : public Rectangle
 {
     private:
         double width;
@@ -33,7 +33,7 @@ class Square : public Shape
         }
 };
 
-class IsocelesRightTriangle : public Shape
+class IsocelesRightTriangle : public RightTriangle
 {
     private:
         double height;
@@ -61,6 +61,7 @@ class Rectangle : public Shape
         double width;
         double length;
     public:
+    Rectangle() {}
         Rectangle(double w, double l)
         {
             width = w;
@@ -101,6 +102,7 @@ class RightTriangle : public Shape
         double height;
         double base;
     public:
+    RightTriangle() {}
         RightTriangle(double h, double b)
         {
             height = h;
